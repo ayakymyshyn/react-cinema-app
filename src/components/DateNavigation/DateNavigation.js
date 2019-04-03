@@ -1,6 +1,7 @@
 import React from "react";
 
 import NavigationItem from "../NavigationItem/NavigationItem";
+import "./DateNavigation.scss";
 
 const DateNavigation = () => {
   const getDaysData = () => {
@@ -16,11 +17,7 @@ const DateNavigation = () => {
     let daysForNav = [];
     let currentDay = new Date().getDay();
 
-    days.forEach((day, idx) => {
-      if (idx >= currentDay) {
-        daysForNav.push(days[idx]);
-      }
-    });
+    days.map((day, idx) => idx >= currentDay && daysForNav.push(days[idx]));
 
     if (daysForNav.length < 7) {
       let cnt = 7 - daysForNav.length;
@@ -32,10 +29,15 @@ const DateNavigation = () => {
     daysForNav[0] = "Today";
     return daysForNav;
   };
-
-  return getDaysData().map((day, idx) => {
-    return <NavigationItem key={idx} value={day} />;
-  });
+  return (
+    <nav className="navbar">
+      <ul className="menu">
+        {getDaysData().map((day, idx) => {
+          return <NavigationItem key={idx} value={day} />;
+        })}
+      </ul>
+    </nav>
+  );
 };
 
 export default DateNavigation;

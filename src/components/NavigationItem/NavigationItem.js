@@ -1,8 +1,10 @@
 import React from "react";
 import T from "prop-types";
 
+import "./NavigationItem.scss";
+
 const NavigationItem = ({ value }) => (
-  <li>
+  <li className="element">
     <a href="#">{value}</a>
   </li>
 );

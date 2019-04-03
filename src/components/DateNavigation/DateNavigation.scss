@@ -1,0 +1,36 @@
+.navbar {
+  display: flex;
+  width: 100%;
+  min-height: 50px;
+  align-items: center;
+  justify-content: center;
+  background-color: bisque;
+
+  .menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+
+    li {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: aqua;
+      margin-right: 15px;
+      height: 30px;
+      width: 90px;
+      border-radius: 20px;
+
+      &:hover {
+        background-color: white;
+        border: 1px solid black;
+      }
+      a {
+        color: inherit;
+        text-decoration: inherit;
+      }
+    }
+  }
+}
