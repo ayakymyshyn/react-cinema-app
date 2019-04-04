@@ -14,19 +14,11 @@ const DateNavigation = () => {
       "Friday",
       "Saturday"
     ];
-    let daysForNav = [];
-    let currentDay = new Date().getDay();
+    let daysForNav = ["Today"];
+    let currentDay = new Date().getDay() + 1;
 
-    days.map((day, idx) => idx >= currentDay && daysForNav.push(days[idx]));
-
-    if (daysForNav.length < 7) {
-      let cnt = 7 - daysForNav.length;
-      for (let i = 0; i < cnt; i++) {
-        daysForNav.push(days[i]);
-      }
-    }
-
-    daysForNav[0] = "Today";
+    days.map((day, idx) => idx >= currentDay && daysForNav.push(day));
+    days.map(day => !daysForNav.includes(day) && daysForNav.push(day));
     return daysForNav;
   };
   return (

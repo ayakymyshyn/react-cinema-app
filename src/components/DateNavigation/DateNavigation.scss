@@ -12,19 +12,22 @@
     padding: 0;
     height: 100%;
     display: flex;
-
+    &:first-child {
+      margin-left: 15px;
+    }
     li {
+      cursor: pointer;
       display: flex;
       justify-content: center;
       align-items: center;
-      background-color: aqua;
+      background-color: rgb(238, 75, 216);
       margin-right: 15px;
       height: 30px;
       width: 90px;
       border-radius: 20px;
 
       &:hover {
-        background-color: white;
+        background-color: rgb(235, 248, 229);
         border: 1px solid black;
       }
       a {
