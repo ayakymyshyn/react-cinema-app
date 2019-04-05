@@ -1,0 +1,26 @@
+.main-app {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  background-color: rgb(179, 206, 206);
+  flex-direction: column;
+
+  & > * {
+    border: 2px solid red;
+    margin: 5px;
+  }
+
+  &__header {
+    height: 20vh;
+  }
+
+  &__content {
+    //   tests
+    min-height: 1000px;
+  }
+
+  &__footer {
+    flex: 1;
+    min-height: 30px;
+  }
+}
