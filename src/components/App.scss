@@ -5,11 +5,6 @@
   background-color: rgb(179, 206, 206);
   flex-direction: column;
 
-  & > * {
-    border: 2px solid red;
-    margin: 5px;
-  }
-
   &__header {
     height: 20vh;
   }
