@@ -1,0 +1,29 @@
+@font-face {
+  font-family: ProximaNovaRegular;
+  src: url(../../fonts/ProximaNova-Regular.ttf);
+}
+
+@font-face {
+  font-family: ProximaNovaBold;
+  src: url(../../fonts/ProximaNova-Bold.ttf);
+}
+
+.slider-image {
+  max-width: 100%;
+  opacity: 0.6;
+}
+.active.carousel-item {
+  height: 100vh;
+  transform: translateZ(0);
+}
+
+.carousel.slide {
+  background-color: #000;
+}
+.carousel-caption {
+  font-family: ProximaNovaRegular;
+}
+
+.active .carousel-item {
+  background-image: url("https://images8.alphacoders.com/100/thumb-1920-1003220.png") !important;
+}

@@ -1,25 +1,35 @@
-import React, { useEffect } from "react";
+import React, { useState } from "react";
 import Navigation from "../components/Navigation/Navigation";
 import { connect } from "react-redux";
 import "./App.scss";
 
-const App = ({ count }) => {
-  useEffect(() => {
-    console.log(count);
-  }, []);
+import Slider from "./Slider/Slider";
+import SelectDate from "./SelectDate/SelectDate";
+import MovieGrid from "./Movie/MovieGrid/MovieGrid";
 
+import { films } from "../mockData/films";
+import getShedule from "../redux/actions/getShedule";
+import { filterFilmsByDate } from "../utils/filterFilmsByDate";
+
+const App = () => {
+  const [date, setDate] = useState(new Date());
+  console.log(typeof date);
   return (
     <div className="main-app">
       <div className="main-app__nav">
         <Navigation />
       </div>
-      <div className="main-app__header">React Cinema App</div>
-      <div className="main-app__content">content</div>
-      <div className="main-app__footer">Footer</div>
+      <Slider />
+      <button onClick={filterFilmsByDate(films, date)}>click me</button>
+      <SelectDate movies={films} onChangeHandler={setDate} />
+      <MovieGrid movies={films} />
     </div>
   );
 };
 
-const mapStateToProps = state => ({ count: state.count });
+const mapStateToProps = state => ({ date: state.dateReducer.date });
+const mapDispatchToProps = dispatch => ({
+  getShedule: data => dispatch(getShedule(data))
+});
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);

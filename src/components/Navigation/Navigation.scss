@@ -1,6 +1,6 @@
 @font-face {
   font-family: Proxima-Nova-Regular;
-  src: url(/fonts/ProximaNova-Regular.ttf);
+  src: url(../../fonts/ProximaNova-Regular.ttf);
 }
 
 @font-face {
@@ -17,6 +17,7 @@ $tablet-breakpoint: 768px;
         min-width: auto;
         display: flex;
         justify-content: center;
+        align-items: center;
       }
     }
     .icon:first-child {
@@ -30,22 +31,22 @@ $tablet-breakpoint: 768px;
 
 .navigation {
   width: 100%;
-  background-color: #242121;
-  border-bottom: 3px solid #8651c2;
-
+  background-color: transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
   .menu {
     display: flex;
-    align-items: center;
-    justify-content: center;
-
+    align-items: flex-end;
+    justify-content: flex-end;
+    margin-bottom: 0px;
     &__item {
       list-style: none;
       width: 220px;
-
       @media (max-width: $tablet-breakpoint) {
         width: 25%;
       }
-
       &:hover {
         .icon.fas,
         .link {
@@ -53,16 +54,16 @@ $tablet-breakpoint: 768px;
           transition: 200ms color linear;
         }
       }
-
       .link {
         text-decoration: none;
         text-transform: uppercase;
-        color: #8651c2;
+        color: #fff;
         font-size: 12px;
         font-family: ProximaNovaBold;
         display: flex;
         align-items: center;
         padding: 15px 25px;
+        margin-left: 10px;
 
         .icon {
           @media (max-width: $tablet-breakpoint) {

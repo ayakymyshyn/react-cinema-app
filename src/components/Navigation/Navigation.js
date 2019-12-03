@@ -1,6 +1,8 @@
 import React from "react";
 import "./Navigation.scss";
 
+import SelectDate from "../SelectDate/SelectDate";
+
 const Navigation = () => (
   <nav className="navigation">
     <ul className="menu">
@@ -8,13 +10,6 @@ const Navigation = () => (
         <a className="link" href="#">
           <i className="icon fas fa-ticket-alt main-app__nav__icon" />{" "}
           <span className="option">my tickets</span>
-        </a>
-      </li>
-      <li className="menu__item">
-        <a className="link" href="#">
-          {" "}
-          <i className="icon fas fa-calendar-alt " />{" "}
-          <span className="option">pick a date</span>
         </a>
       </li>
       <li className="menu__item">
