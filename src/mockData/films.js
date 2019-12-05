@@ -9,13 +9,13 @@ export const films = [
     ticketPrice: 150,
     dates: [
       {
-        date: new Date("July 21, 2019 01:15:00")
+        date: new Date("July 21, 2019 02:15:00")
       },
       {
         date: new Date("July 21, 2019 03:15:00")
       },
       {
-        date: new Date("July 21, 2019 06:15:00")
+        date: new Date("July 21, 2019 04:15:00")
       }
     ],
   },
@@ -27,13 +27,13 @@ export const films = [
     seatsAvaible: 30,
     dates: [
       {
-        date: new Date("July 21, 2019 01:15:00")
-      },
-      {
-        date: new Date("July 21, 2019 03:15:00")
+        date: new Date("July 21, 2019 05:15:00")
       },
       {
         date: new Date("July 21, 2019 06:15:00")
+      },
+      {
+        date: new Date("July 21, 2019 07:15:00")
       }
     ],
     sliderImage: "https://images8.alphacoders.com/100/thumb-1920-1003220.png",
@@ -50,13 +50,13 @@ export const films = [
     ticketPrice: 150,
     dates: [
       {
-        date: new Date("February, 2019 01:15:00")
+        date: new Date("February, 2019 08:15:00")
       },
       {
-        date: new Date("December, 2019 03:15:00")
+        date: new Date("December, 2019 09:15:00")
       },
       {
-        date: new Date("September 21, 2019 06:15:00")
+        date: new Date("September 21, 2019 10:15:00")
       }
     ],
   },
@@ -70,14 +70,11 @@ export const films = [
     ticketPrice: 150,
     dates: [
       {
-        date: new Date("July 21, 2019 01:15:00")
+        date: new Date("July 21, 2019 11:15:00")
       },
       {
-        date: new Date("July 21, 2019 03:15:00")
+        date: new Date("July 21, 2019 12:15:00")
       },
-      {
-        date: new Date("July 21, 2019 06:15:00")
-      }
     ],
   },
   {
@@ -90,13 +87,13 @@ export const films = [
     ticketPrice: 150,
     dates: [
       {
-        date: new Date("July 21, 2019 01:15:00")
+        date: new Date("July 21, 2019 13:15:00")
       },
       {
-        date: new Date("July 21, 2019 03:15:00")
+        date: new Date("July 21, 2019 14:15:00")
       },
       {
-        date: new Date("July 21, 2019 06:15:00")
+        date: new Date("July 21, 2019 15:15:00")
       }
     ],
   },
@@ -110,13 +107,13 @@ export const films = [
     ticketPrice: 150,
     dates: [
       {
-        date: new Date("July 21, 2019 01:15:00")
+        date: new Date("July 21, 2019 16:15:00")
       },
       {
-        date: new Date("July 21, 2019 03:15:00")
+        date: new Date("July 21, 2019 17:15:00")
       },
       {
-        date: new Date("July 21, 2019 06:15:00")
+        date: new Date("July 21, 2019 18:15:00")
       }
     ],
   }

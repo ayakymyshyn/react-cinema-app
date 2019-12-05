@@ -12,7 +12,7 @@ import getShedule from "../redux/actions/getShedule";
 import { filterFilmsByDate } from "../utils/filterFilmsByDate";
 
 const App = () => {
-  const [date, setDate] = useState(new Date());
+  const [date, setDate] = useState(undefined);
   console.log(typeof date);
   return (
     <div className="main-app">
@@ -20,9 +20,9 @@ const App = () => {
         <Navigation />
       </div>
       <Slider />
-      <button onClick={filterFilmsByDate(films, date)}>click me</button>
+      <button onClick={date && filterFilmsByDate(films, date)}>click me</button>
       <SelectDate movies={films} onChangeHandler={setDate} />
-      <MovieGrid movies={films} />
+      <MovieGrid movies={date ? filterFilmsByDate(films, date) : films} />
     </div>
   );
 };
