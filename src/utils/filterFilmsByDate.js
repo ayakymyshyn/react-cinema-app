@@ -9,10 +9,9 @@ export const filterFilmsByDate = (movies, date) => {
 
 const filterDate = (dates, neededDate) => {
   return dates.filter(date => {
-    let dateStr =
-      displayDateCorrectly(date.date).toString() +
-      " " +
-      displayFilmTime(date.date).toString();
+    let dateStr = `${displayDateCorrectly(
+      date.date
+    ).toString()} ${displayFilmTime(date.date).toString()}`;
     return dateStr === neededDate.toString();
   });
 };

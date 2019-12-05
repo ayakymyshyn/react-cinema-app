@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Navigation from "../components/Navigation/Navigation";
 import { connect } from "react-redux";
 import "./App.scss";
@@ -12,7 +12,12 @@ import getShedule from "../redux/actions/getShedule";
 import { filterFilmsByDate } from "../utils/filterFilmsByDate";
 
 const App = () => {
-  const [date, setDate] = useState(undefined);
+  const [date, setDate] = useState(null);
+  const [movies, setMovies] = useState([]);
+
+  useEffect(() => {
+    setMovies(films); // will receive info from server
+  });
   console.log(typeof date);
   return (
     <div className="main-app">
@@ -22,7 +27,7 @@ const App = () => {
       <Slider />
       <button onClick={date && filterFilmsByDate(films, date)}>click me</button>
       <SelectDate movies={films} onChangeHandler={setDate} />
-      <MovieGrid movies={date ? filterFilmsByDate(films, date) : films} />
+      <MovieGrid movies={date ? filterFilmsByDate(films, date) : movies} />
     </div>
   );
 };
