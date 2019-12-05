@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Navigation from "../components/Navigation/Navigation";
 import { connect } from "react-redux";
+import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import "./App.scss";
 
 import Slider from "./Slider/Slider";
@@ -20,15 +21,27 @@ const App = () => {
   });
   console.log(typeof date);
   return (
-    <div className="main-app">
-      <div className="main-app__nav">
-        <Navigation />
+    <Router>
+      <div className="main-app">
+        <div className="main-app__nav">
+          <Navigation />
+        </div>
+        <Route
+          exact
+          path="/"
+          render={() => (
+            <React.Fragment>
+              <Slider />
+              <SelectDate movies={films} onChangeHandler={setDate} />
+              <MovieGrid
+                movies={date ? filterFilmsByDate(films, date) : movies}
+              />
+            </React.Fragment>
+          )}
+        />
+        <Route path="*" render={() => <h2>404</h2>} />
       </div>
-      <Slider />
-      <button onClick={date && filterFilmsByDate(films, date)}>click me</button>
-      <SelectDate movies={films} onChangeHandler={setDate} />
-      <MovieGrid movies={date ? filterFilmsByDate(films, date) : movies} />
-    </div>
+    </Router>
   );
 };
 
