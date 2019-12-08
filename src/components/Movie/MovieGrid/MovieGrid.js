@@ -9,7 +9,7 @@ const styleCardsWrapper = {
   marginTop: "25px"
 };
 
-const MovieGrid = ({ movies }) => (
+const MovieGrid = ({ movies, stringDate }) => (
   <div style={styleCardsWrapper} className="movie-cards-container">
     {movies ? (
       movies.map(movie => (
@@ -18,10 +18,9 @@ const MovieGrid = ({ movies }) => (
           title={movie.title}
           picture={movie.image}
           seatsAvaible={movie.seatsAvaible}
-          date={movie.dates && movie.dates[0].date.getDate()}
-          mounth={movie.dates && movie.dates[0].date.getMonth()}
-          hour={movie.dates && movie.dates[0].date.getHours()}
-          minutes={movie.dates && movie.dates[0].date.getMinutes()}
+          date={movie.dates && movie.dates[0].date}
+          stringDate={stringDate}
+          price={movie.ticketPrice}
         />
       ))
     ) : (

@@ -1,16 +1,18 @@
 import React from "react";
 
+import { displayFilmTime } from "../../../utils/displayFilmTime";
+import { displayDateCorrectly } from "../../../utils/displayDateCorrectly";
+import { Link } from "react-router-dom";
+
 import "./MovieCard.scss";
 
 const MovieCard = ({
   title,
   date,
-  screen,
+  price,
   seatsAvaible,
   picture,
-  hour,
-  minutes,
-  mounth
+  stringDate
 }) => (
   <div className="movie-card">
     <div
@@ -19,21 +21,25 @@ const MovieCard = ({
     ></div>
     <div className="movie-content">
       <div className="movie-content-header">
-        <a href="#">
+        <Link to={`/movie/${title.toLowerCase().replace(/ /g, "-")}`}>
           <h3 className="movie-title">{title}</h3>
-        </a>
+        </Link>
         <div className="imax-logo"></div>
       </div>
       <div className="movie-info">
         <div className="info-section">
           <label>Date & Time</label>
-          <span>
-            {`${date}.${mounth < 10 ? `0${mounth}` : mounth}`} - {`${hour}:${minutes}`}
-          </span>
+          {stringDate ? (
+            <span>{stringDate}</span>
+          ) : (
+            <span>
+              {displayDateCorrectly(date)} - {displayFilmTime(date)}
+            </span>
+          )}
         </div>
         <div className="info-section">
-          <label>Screen</label>
-          <span>{screen}</span>
+          <label>Price</label>
+          <span>{price}</span>
         </div>
         <div className="info-section">
           <label>Seats avaible</label>

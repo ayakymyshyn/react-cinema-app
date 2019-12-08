@@ -7,6 +7,7 @@ export const films = [
     seatsAvaible: 30,
     image: "https://wallpaperaccess.com/full/35357.jpg",
     ticketPrice: 150,
+    screen: 1,
     dates: [
       {
         date: new Date("July 21, 2019 02:15:00")
@@ -21,10 +22,11 @@ export const films = [
   },
   {
     id: 2,
-    title: "Amazing Spider Man 2",
+    title: "Harry Potter and Deathly Hallows",
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
     seatsAvaible: 30,
+    screen: 1,
     dates: [
       {
         date: new Date("July 21, 2019 05:15:00")
@@ -42,7 +44,8 @@ export const films = [
   },
   {
     id: 3,
-    title: "Amazing Spider Man 2",
+    title: "It",
+    screen: 1,
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
     seatsAvaible: 30,
@@ -62,7 +65,8 @@ export const films = [
   },
   {
     id: 4,
-    title: "Amazing Spider Man 2",
+    title: "Holidays in Las Vegas",
+    screen: 1,
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
     seatsAvaible: 30,
@@ -80,6 +84,7 @@ export const films = [
   {
     id: 5,
     title: "Amazing Spider Man",
+    screen: 1,
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
     seatsAvaible: 30,
@@ -99,7 +104,8 @@ export const films = [
   },
   {
     id: 6,
-    title: "Amazing Spider Man 2",
+    title: "What da hack is that",
+    screen: 1,
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
     seatsAvaible: 30,
