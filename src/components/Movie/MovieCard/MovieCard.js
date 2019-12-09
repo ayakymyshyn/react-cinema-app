@@ -12,7 +12,7 @@ const MovieCard = ({
   price,
   seatsAvaible,
   picture,
-  stringDate
+  stringDate,
 }) => (
   <div className="movie-card">
     <div
