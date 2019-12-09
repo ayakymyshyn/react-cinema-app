@@ -1,6 +1,7 @@
 import React from "react";
 
 import './MovieDetails.scss';
+import Sector from "../../Booking/Sector/Sector";
 
 const MovieDetails = props => {
     console.log(props.match.params); //will fetch movie data using match.params
@@ -18,7 +19,7 @@ const MovieDetails = props => {
             adipiscing in adipiscing et, interdum nec metus. Mauris ultricies,
             justo eu convallis placerat, felis enim.
           </p>
-          <buttom className="btn btn-primary">Book ticket</buttom>
+          <Sector />
         </div>
       </div>
     </div>

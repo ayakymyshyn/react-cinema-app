@@ -1,8 +1,11 @@
 import React from "react";
 
+import booked from "../../../images/booked.png";
+import free from "../../../images/free.png";
+
 const seats = [
   { booked: false, type: "default", id: 1 },
-  { booked: false, type: "default", id: 2 },
+  { booked: true, type: "default", id: 2 },
   { booked: false, type: "default", id: 3 },
   { booked: false, type: "default", id: 4 },
   { booked: false, type: "default", id: 5 },
@@ -14,27 +17,55 @@ const seats = [
   { booked: false, type: "default", id: 8 },
   { booked: false, type: "default", id: 9 },
   { booked: false, type: "default", id: 9 },
-  { booked: false, type: "default", id: 9 }
+  { booked: false, type: "default", id: 9 },
+  { booked: false, type: "default", id: 1 },
+  { booked: false, type: "default", id: 2 },
+  { booked: false, type: "default", id: 3 },
+  { booked: false, type: "default", id: 4 },
+  { booked: false, type: "default", id: 5 },
+  { booked: false, type: "default", id: 6 },
+  { booked: true, type: "default", id: 7 },
+  { booked: false, type: "default", id: 8 },
+  { booked: false, type: "default", id: 9 },
+  { booked: false, type: "default", id: 7 },
+  { booked: false, type: "default", id: 8 }
 ];
-const rowsNum = 4;
-const seatsInRow = 3;
+const rowsNum = 5;
+const seatsNum = 25;
 
 const styles = {
-    color: "#fff"
-}
-const Sector = () => {
+  color: "#fff",
+  maxWidth: "50px",
+  margin: '5px'
+};
+
+const Sector = (seets, numberOfRows, seatsNumber) => {
   return (
-    <div>
+    <div className="sector">
+      <div>
+        {"SCREEN"}
+      </div>
       {seats.map((seat, i) => {
-        return (i + 1) % (seatsInRow / rowsNum) === 0 ? (
+        return (i + 1) % (seatsNum / rowsNum) === 0 ? (
           <React.Fragment>
-            <span style={styles} onClick={() => console.log(i)}>{seat.booked.toString()}</span>
-            <br />{" "}
+            <img
+              src={seat.booked ? booked : free}
+              style={styles}
+              onClick={() => console.log(seat.id)}
+            />
+            <br />
           </React.Fragment>
         ) : (
-          <span style={styles} onClick={() => console.log(i)}>{`${seat.booked.toString()} `}</span>
+          <React.Fragment>
+            <img
+              src={seat.booked ? booked : free}
+              style={styles}
+              onClick={() => console.log(seat.id)}
+            />
+          </React.Fragment>
         );
       })}
+       <button className="btn btn-primary">Book ticket</button>
     </div>
   );
 };
