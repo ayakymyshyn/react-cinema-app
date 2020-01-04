@@ -5,24 +5,21 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.scss";
 
 import Slider from "./Slider/Slider";
-import SelectDate from "./SelectDate/SelectDate";
 import MovieGrid from "./Movie/MovieGrid/MovieGrid";
 import MovieDetails from "./Movie/MovieDetails/MovieDetails";
 import Sector from './Booking/Sector/Sector';
 
 import { films } from "../mockData/films";
-import getShedule from "../redux/actions/getShedule";
+import getMovies from '../redux/actions/getMovies';
 import { filterFilmsByDate } from "../utils/filterFilmsByDate";
 
 const App = props => {
-  const [date, setDate] = useState(null);
-  const [movies, setMovies] = useState([]);
+  const [date] = useState(null);
 
   useEffect(() => {
-    setMovies(films);
-    console.log('useffect'); // will receive info from server
+    props.getMovies(films);
   }, []);
-  console.log(typeof date);
+
   return (
     <Router>
       <div className="main-app">
@@ -36,9 +33,8 @@ const App = props => {
             render={() => (
               <React.Fragment>
                 <Slider />
-                <SelectDate movies={films} onChangeHandler={setDate} />
                 <MovieGrid
-                  movies={date ? filterFilmsByDate(films, date) : movies}
+                  movies={date ? filterFilmsByDate(films, date) : props.movies}
                   stringDate={date}
                 />
               </React.Fragment>
@@ -53,9 +49,9 @@ const App = props => {
   );
 };
 
-const mapStateToProps = state => ({ date: state.dateReducer.date });
+const mapStateToProps = state => ({ movies: state.moviesReducer.movies });
 const mapDispatchToProps = dispatch => ({
-  getShedule: data => dispatch(getShedule(data))
+  getMovies: movies => dispatch(getMovies(movies)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

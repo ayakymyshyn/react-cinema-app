@@ -1,4 +1,4 @@
 import { combineReducers } from "redux";
-import dateReducer from "./dateReducer";
+import moviesReducer from "./moviesReducer";
 
-export const rootReducer = combineReducers({ dateReducer });
+export const rootReducer = combineReducers({ moviesReducer });

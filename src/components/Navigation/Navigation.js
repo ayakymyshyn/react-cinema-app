@@ -1,7 +1,6 @@
 import React from "react";
 import "./Navigation.scss";
 
-import SelectDate from "../SelectDate/SelectDate";
 
 const Navigation = () => (
   <nav className="navigation">
