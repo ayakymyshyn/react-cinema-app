@@ -10,14 +10,14 @@ import { cleanSeatsArray } from "../../../redux/actions/cleanSeatsArray";
 import { displayDateCorrectly } from "../../../utils/displayDateCorrectly";
 import { displayFilmTime } from "../../../utils/displayFilmTime";
 
-const MovieDetails = ({ match, getSingleFilm, film, cleanSeatsArray }) => {
-  const [movie, setMovie] = useState({});
+const MovieDetails = ({ match, getSingleFilm, movie, cleanSeatsArray }) => {
+  //const [movie, setMovie] = useState({});
   const [selectedDate, setSelectedDate] = useState({});
+  console.log(selectedDate);
 
   useEffect(() => {
-    setMovie(...getMovie(films, match.params.movie));
-    getSingleFilm(movie);
-  }, [movie]);
+    getSingleFilm(match.params.movieId);
+  }, []);
 
   return (
     <div className="container">
@@ -39,9 +39,9 @@ const MovieDetails = ({ match, getSingleFilm, film, cleanSeatsArray }) => {
             <div className="col-md-3">
               <ul className="list-group">
                 {movie.dates &&
-                  movie.dates.map((date, i) => (
+                  movie.dates.map(date => (
                     <li
-                      key={i}
+                      key={date._id}
                       className="list-group-item"
                       onClick={() => {
                         setSelectedDate(date);
@@ -62,7 +62,7 @@ const MovieDetails = ({ match, getSingleFilm, film, cleanSeatsArray }) => {
 };
 
 const mapStateToProps = state => ({
-  film: state.moviesReducer.movie
+  movie: state.moviesReducer.movie
 });
 
 const mapDispatchToProps = dispatch => ({

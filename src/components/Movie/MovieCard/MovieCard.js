@@ -6,23 +6,16 @@ import { Link } from "react-router-dom";
 
 import "./MovieCard.scss";
 
-const MovieCard = ({
-  title,
-  date,
-  price,
-  seatsAvaible,
-  picture,
-  stringDate,
-}) => (
+const MovieCard = ({ movie, stringDate }) => (
   <div className="movie-card">
     <div
       className="movie-header"
-      style={{ background: `url(${picture})`, backgroundSize: "cover" }}
+      style={{ background: `url(${movie.image})`, backgroundSize: "cover" }}
     ></div>
     <div className="movie-content">
       <div className="movie-content-header">
-        <Link to={`/movie/${title.toLowerCase().replace(/ /g, "-")}`}>
-          <h3 className="movie-title">{title}</h3>
+        <Link to={`/movie/${movie._id}`}>
+          <h3 className="movie-title">{movie.title}</h3>
         </Link>
         <div className="imax-logo"></div>
       </div>
@@ -33,17 +26,13 @@ const MovieCard = ({
             <span>{stringDate}</span>
           ) : (
             <span>
-              {displayDateCorrectly(date)} - {displayFilmTime(date)}
+              {displayDateCorrectly(movie.dates[0].date)} - {displayFilmTime(movie.dates[0].date)}
             </span>
           )}
         </div>
         <div className="info-section">
           <label>Price</label>
-          <span>{price}</span>
-        </div>
-        <div className="info-section">
-          <label>Seats avaible</label>
-          <span>{seatsAvaible === 0 ? "Sold out" : seatsAvaible}</span>
+          <span>{movie.price}</span>
         </div>
       </div>
     </div>

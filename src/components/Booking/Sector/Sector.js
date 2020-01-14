@@ -1,15 +1,15 @@
 import React from "react";
-import { connect } from "react-redux";
 
 import Row from "./Row";
 import SeatsInfo from "./SeatsInfo";
 
 const Sector = ({ movie, filmDate, selectedSeats }) => {
   console.log(selectedSeats);
+  console.log(movie);
   return (
     <div className="sector">
       <div>{"SCREEN"}</div>
-      <SeatsInfo info={selectedSeats} />
+      <SeatsInfo />
       {movie.dates &&
         movie.dates.map(date => {
           return (
@@ -24,13 +24,8 @@ const Sector = ({ movie, filmDate, selectedSeats }) => {
             })
           );
         })}
-      
     </div>
   );
 };
 
-const mapStateToProps = state => ({
-  selectedSeats: state.moviesReducer.selectedSeats
-});
-
-export default connect(mapStateToProps)(Sector);
+export default Sector;

@@ -1,23 +1,23 @@
 import React, { useState, useEffect } from "react";
 import Navigation from "../components/Navigation/Navigation";
 import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
 import "./App.scss";
 
 import Slider from "./Slider/Slider";
 import MovieGrid from "./Movie/MovieGrid/MovieGrid";
 import MovieDetails from "./Movie/MovieDetails/MovieDetails";
-import Sector from './Booking/Sector/Sector';
+import Sector from "./Booking/Sector/Sector";
 
-import { films } from "../mockData/films";
-import getMovies from '../redux/actions/getMovies';
-import { filterFilmsByDate } from "../utils/filterFilmsByDate";
+import getMovies from "../redux/actions/getMovies";
 
 const App = props => {
   const [date] = useState(null);
 
   useEffect(() => {
-    props.getMovies(films);
+    props.getMovies();
   }, []);
 
   return (
@@ -33,14 +33,11 @@ const App = props => {
             render={() => (
               <React.Fragment>
                 <Slider />
-                <MovieGrid
-                  movies={date ? filterFilmsByDate(films, date) : props.movies}
-                  stringDate={date}
-                />
+                <MovieGrid movies={props.movies} />
               </React.Fragment>
             )}
           />
-          <Route path="/movie/:movie" component={MovieDetails} />
+          <Route path="/movie/:movieId" component={MovieDetails} />
           <Route path="/seats" component={Sector} />
           <Route path="*" render={() => <h2>404</h2>} />
         </Switch>
@@ -50,8 +47,7 @@ const App = props => {
 };
 
 const mapStateToProps = state => ({ movies: state.moviesReducer.movies });
-const mapDispatchToProps = dispatch => ({
-  getMovies: movies => dispatch(getMovies(movies)),
-});
+const mapDispatchToProps = dispatch =>
+  bindActionCreators({ getMovies }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

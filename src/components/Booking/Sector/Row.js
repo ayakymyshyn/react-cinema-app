@@ -20,23 +20,23 @@ const styles = {
 
 const Row = ({ seats, setChosenSeats, selectedSeats, removeSeat, rowNum }) => {
   return seats.map((seat, i) => {
-    let found = selectedSeats.find(el => el.seat === seat.id);
+    let found = selectedSeats.find(el => el.seat === seat._id);
     return (
       <React.Fragment>
         <img
-          key={i}
+          key={seat._id}
           src={seat.booked ? booked : free}
           alt="Movie"
           style={{ ...styles }}
           onClick={e => {
             !seat.booked && e.target.classList.toggle("selected");
-            console.log(found);
             !seat.booked && !selectedSeats.seat && !found
               ? setChosenSeats({
                   row: rowNum,
-                  seat: seat.id
+                  seat: seat._id,
+                  seatNum: i + 1
                 })
-              : removeSeat(seat.id);
+              : removeSeat(seat._id);
           }}
         />
       </React.Fragment>
