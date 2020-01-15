@@ -18,9 +18,9 @@ const styles = {
   padding: "10px"
 };
 
-const Row = ({ seats, setChosenSeats, selectedSeats, removeSeat, rowNum }) => {
+const Row = ({ seats, setChosenSeats, selectedSeats, removeSeat, rowNum, date, price }) => {
   return seats.map((seat, i) => {
-    let found = selectedSeats.find(el => el.seat === seat._id);
+    let found = selectedSeats.find(el => el.seatNum === seat._id);
     return (
       <React.Fragment>
         <img
@@ -30,11 +30,13 @@ const Row = ({ seats, setChosenSeats, selectedSeats, removeSeat, rowNum }) => {
           style={{ ...styles }}
           onClick={e => {
             !seat.booked && e.target.classList.toggle("selected");
-            !seat.booked && !selectedSeats.seat && !found
+            !seat.booked && !selectedSeats.seatNum && !found
               ? setChosenSeats({
                   row: rowNum,
-                  seat: seat._id,
-                  seatNum: i + 1
+                  seatNum: seat._id,
+                  seat: i,
+                  date,
+                  price 
                 })
               : removeSeat(seat._id);
           }}

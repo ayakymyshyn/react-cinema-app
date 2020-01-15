@@ -1,13 +1,4 @@
-body {
-    height: 100%;
-    width: 100%;
-    background: #e9e9e9;
-    font-family: 'Arimo', Arial, sans-serif;
-    font-weight: 400;
-    font-size: 14px;
-    color: #010b26;
-  }
-  
+
   * {
     -webkit-transition: 300ms;
     transition: 300ms;
@@ -16,23 +7,7 @@ body {
   .intro {
     text-align: center;
   }
-  
-  ul {
-    list-style-type: none;
-  }
-  
-  h1, h2, h3, h4, h5, p {
-    font-weight: 400;
-  }
-  
-  a {
-    text-decoration: none;
-    color: inherit;
-  }
-  
-  a:hover {
-    color: #6ABCEA;
-  }
+
   
   .container {
     display: -webkit-box;
@@ -68,28 +43,7 @@ body {
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
   }
-  
-  .manOfSteel {
-    background: url("http://henrycavill.org/images/Films/2013-Man-of-Steel/posters/3-Walmart-Superman-a.jpg");
-    background-size: cover;
-  }
-  
-  .babyDriver {
-    background: url("https://wallpaperaccess.com/full/35357.jpg");
-    background-size: cover;
-  }
-  
-  .theDarkTower {
-    background: url("http://cdn.collider.com/wp-content/uploads/2017/03/the-dark-tower-poster.jpg");
-    background-size: cover;
-    background-position: 100% 100%;
-  }
-  
-  .bladeRunner2049 {
-    background: url("https://wallpaperaccess.com/full/35357.jpg");
-    background-size: cover;
-    background-position: 100% 80%;
-  }
+
   
   .header-icon-container {
     position: relative;
@@ -186,10 +140,5 @@ body {
       max-width: 95%;
       margin: 1em;
       display: block;
-    }
-  
-    .container {
-      padding: 0;
-      margin: 0;
     }
   }
