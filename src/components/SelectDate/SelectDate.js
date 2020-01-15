@@ -2,7 +2,7 @@ import React from "react";
 
 import { mapFilmDate } from "../../utils/mapFilmDate";
 
-const SelectDate = ({ movies, date, onChangeHandler }) => (
+const SelectDate = ({ movies, onChangeHandler }) => (
   <div className="link">
     <select
       className="selectpicker"

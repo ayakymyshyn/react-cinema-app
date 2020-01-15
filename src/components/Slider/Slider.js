@@ -1,31 +1,34 @@
 import React from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "../Slider/Slider.scss";
-import { Carousel } from "react-bootstrap";
-import { films } from "../../mockData/films";
+
+import { Link } from "react-router-dom";
 
 
-const Slider = props => (
-  <Carousel>
-    {films.map(film => {
-      return (
-        film.sliderImage && (
-          <Carousel.Item style={{backgroundImage: `${film.sliderImage}`}}>
-            <img
-              className="d-block w-100 slider-image"
-              src={film.sliderImage}
-              alt="First slide"
-            />
-            <Carousel.Caption>
-              <h3>{film.title}</h3>
-              <p>{film.description}</p>
-              <button type="button" class="btn btn-primary">Secondary</button>
-            </Carousel.Caption>
-          </Carousel.Item>
-        )
-      );
-    })}
-  </Carousel>
-);
 
-export default Slider;
+const TestSlider = ({ movie }) => {
+  return (
+    <section className="hero-area" id="home">
+      <div className="container">
+        <div className="hero-area-slider">
+          <div className="row hero-area-slide">
+            <div className="col-lg-6 col-md-5">
+              <div className="hero-area-content">
+                <img src={movie && movie.image} alt="about" />
+              </div>
+            </div>
+            <div className="col-lg-6 col-md-7">
+              <div className="hero-area-content pr-50">
+                <h2>{movie && movie.title}</h2>
+                <p>{movie && movie.description}</p>
+                <Link className="theme-btn" to={`/movie/${movie && movie._id}`}>
+                  <i className="icofont icofont-ticket"></i> Buy tickets
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default TestSlider;
