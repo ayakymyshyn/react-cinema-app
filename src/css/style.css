@@ -3,7 +3,7 @@ body {
   line-height: 24px;
   font-size: 14px;
   color: #b6b7b9;
-  background: #13151f;
+  background-color: #fff !important;
   font-family: "Poppins", sans-serif;
   font-weight: 400;
   position: relative;
@@ -1349,4 +1349,24 @@ li.date-list-item {
 }
 .details-overview p {
   margin: 25px 0;
+}
+
+@media only screen and (max-width: 772px) {
+  .hero-area {
+    display: none !important; 
+  }
+}
+
+.spinner { 
+
+  position: fixed;
+  z-index: 999;
+  height: 15em;
+  width: 15em;
+  overflow: visible;
+  margin: auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
 }
