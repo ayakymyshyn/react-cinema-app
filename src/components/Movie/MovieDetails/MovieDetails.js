@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./MovieDetails.scss";
 import Sector from "../../Booking/Sector/Sector";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import { getSingleMovie } from "../../../redux/actions/getSingleMovie";
 import { cleanSeatsArray } from "../../../redux/actions/cleanSeatsArray";
 import { setBookStatus } from "../../../redux/actions/setBookStatus";
@@ -16,7 +17,7 @@ const MovieDetails = ({
   movie,
   cleanSeatsArray,
   setBookStatus,
-  isOk
+  movieLoaded
 }) => {
   const [selectedDate, setSelectedDate] = useState({});
 
@@ -27,7 +28,7 @@ const MovieDetails = ({
     };
   }, []);
 
-  return (
+  return movieLoaded ? (
     <div className="movie-details">
       <section className="breadcrumb-area">
         <div className="container">
@@ -91,18 +92,25 @@ const MovieDetails = ({
                   stringDate={`${displayDateCorrectly(selectedDate.date)} - 
                   ${displayFilmTime(selectedDate.date)}`}
                 />
+                <Link to="/" className="theme-btn">
+                  Back To Main Page
+                </Link>
               </div>
             </div>
           </div>
         </div>
       </section>
     </div>
+  ) : (
+    <div className="spinner">
+      <img src="https://www.defined.com/images/animated_loading__by__amiri.gif" />
+    </div>
   );
 };
 
 const mapStateToProps = state => ({
   movie: state.moviesReducer.movie,
-  isOk: state.moviesReducer.isOk
+  movieLoaded: state.moviesReducer.movieLoaded
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -9,21 +9,25 @@ const moviesState = {
   movies: [],
   movie: {},
   selectedSeats: [],
-  isOk: false
+  isOk: false,
+  loaded: false,
+  movieLoaded: false,
 };
 
 const moviesReducer = (state = moviesState, action) => {
-  const { type, movies, movie, seats, seat, status } = action;
+  const { type, movies, movie, seats, seat, status, loaded, movieLoaded } = action;
   switch (type) {
     case GET_MOVIES:
       return {
         ...state,
-        movies
+        movies,
+        loaded, 
       };
     case GET_SINGLE_MOVIE:
       return {
         ...state,
-        movie
+        movie,
+        movieLoaded
       };
     case SET_SEATS:
       return {

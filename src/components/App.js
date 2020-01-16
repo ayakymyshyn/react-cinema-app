@@ -28,7 +28,7 @@ const App = props => {
     props.getMovies();
   }, []);
 
-  return (
+  return props.loaded ? (
     <Router>
       <div className="main-app">
         <Switch>
@@ -59,6 +59,10 @@ const App = props => {
         </Switch>
       </div>
     </Router>
+  ) : (
+    <div className="spinner">
+      <img src="https://www.defined.com/images/animated_loading__by__amiri.gif" />
+    </div>
   );
 };
 
@@ -66,7 +70,8 @@ const mapStateToProps = state => ({
   movies: state.moviesReducer.movies,
   isOk: state.moviesReducer.isOk,
   selectedSeats: state.moviesReducer.selectedSeats,
-  movie: state.moviesReducer.movie
+  movie: state.moviesReducer.movie,
+  loaded: state.moviesReducer.loaded
 });
 const mapDispatchToProps = dispatch =>
   bindActionCreators({ getMovies }, dispatch);
