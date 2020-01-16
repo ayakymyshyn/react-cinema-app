@@ -1,5 +1,3 @@
-import React from 'react';
-
 
 export const bookTicket = async (url = "", data = []) => {
   console.log(JSON.stringify(data));
@@ -14,7 +12,6 @@ export const bookTicket = async (url = "", data = []) => {
       body: JSON.stringify(data)
     });
     return res.status === 200;
-    //return await res.json();
   } catch (err) {
     console.log(err);
     return err.json({ message: err });

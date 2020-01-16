@@ -1,5 +1,4 @@
-import React, { useEffect, useState, Fragment } from "react";
-
+import React, { useEffect, useState } from "react";
 import "./MovieDetails.scss";
 import Sector from "../../Booking/Sector/Sector";
 import { connect } from "react-redux";
@@ -30,23 +29,23 @@ const MovieDetails = ({
 
   return (
     <div className="movie-details">
-      <section class="breadcrumb-area">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-12">
-              <div class="breadcrumb-area-content">
+      <section className="breadcrumb-area">
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-12">
+              <div className="breadcrumb-area-content">
                 <h1>{movie && movie.title}</h1>
               </div>
             </div>
           </div>
         </div>
       </section>
-      <section class="transformers-area">
-        <div class="container">
-          <div class="transformers-box">
-            <div class="row flexbox-center">
-              <div class="col-lg-5 text-lg-left text-center">
-                <div class="transformers-content">
+      <section className="transformers-area">
+        <div className="container">
+          <div className="transformers-box">
+            <div className="row flexbox-center">
+              <div className="col-lg-5 text-lg-left text-center">
+                <div className="transformers-content">
                   <img
                     src={movie && movie.image}
                     alt="about"
@@ -54,9 +53,9 @@ const MovieDetails = ({
                   />
                 </div>
               </div>
-              <div class="col-lg-7">
-                <div class="transformers-content">
-                  <div class="details-overview">
+              <div className="col-lg-7">
+                <div className="transformers-content">
+                  <div className="details-overview">
                     <h2>{movie && movie.title}</h2>
                     <p>{movie && movie.description}</p>
                   </div>
@@ -89,6 +88,8 @@ const MovieDetails = ({
                   movie={movie}
                   filmDate={selectedDate.date}
                   dateIndex={selectedDate.idx}
+                  stringDate={`${displayDateCorrectly(selectedDate.date)} - 
+                  ${displayFilmTime(selectedDate.date)}`}
                 />
               </div>
             </div>

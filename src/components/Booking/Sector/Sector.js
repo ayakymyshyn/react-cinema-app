@@ -7,7 +7,14 @@ import { connect } from "react-redux";
 import { bookTicket } from "../../../utils/bookTicket";
 import { setBookStatus } from "./../../../redux/actions/setBookStatus";
 
-const Sector = ({ movie, filmDate, dateIndex, ticketInfo, setBookStatus }) => {
+const Sector = ({
+  movie,
+  filmDate,
+  dateIndex,
+  ticketInfo,
+  setBookStatus,
+  stringDate
+}) => {
   const seatsData = {
     bookedSeats: ticketInfo
   };
@@ -29,6 +36,7 @@ const Sector = ({ movie, filmDate, dateIndex, ticketInfo, setBookStatus }) => {
                       rowNum={i}
                       date={dateIndex}
                       price={movie.price}
+                      stringDate={stringDate}
                     />
                     <br />
                   </React.Fragment>

@@ -18,7 +18,16 @@ const styles = {
   padding: "10px"
 };
 
-const Row = ({ seats, setChosenSeats, selectedSeats, removeSeat, rowNum, date, price }) => {
+const Row = ({
+  seats,
+  setChosenSeats,
+  selectedSeats,
+  removeSeat,
+  rowNum,
+  date,
+  price,
+  stringDate
+}) => {
   return seats.map((seat, i) => {
     let found = selectedSeats.find(el => el.seatNum === seat._id);
     return (
@@ -36,7 +45,8 @@ const Row = ({ seats, setChosenSeats, selectedSeats, removeSeat, rowNum, date, p
                   seatNum: seat._id,
                   seat: i,
                   date,
-                  price 
+                  price,
+                  stringDate
                 })
               : removeSeat(seat._id);
           }}
