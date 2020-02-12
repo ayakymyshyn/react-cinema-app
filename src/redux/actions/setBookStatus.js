@@ -1,6 +1,10 @@
-export const SET_BOOK_STATUS = "SET_BOOK_STATUS";
+import { ACTIONS } from "./../constants";
 
-export const setBookStatus = status => ({
-  type: "SET_BOOK_STATUS",
+const setBookStatusAction = status => ({
+  type: ACTIONS.SET_BOOK_STATUS,
   status
 });
+
+export const setBookStatus = status => dispatch => {
+  dispatch(setBookStatusAction(status));
+};

@@ -1,5 +1,5 @@
-export const CLEAN_SEATS_ARRAY = "CLEAN_SEATS_ARRAY";
+import { ACTIONS } from "./../constants";
 
 export const cleanSeatsArray = () => ({
-  type: "CLEAN_SEATS_ARRAY"
+  type: ACTIONS.CLEAN_SEATS_ARRAY
 });

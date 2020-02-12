@@ -1,7 +1,11 @@
-export const SET_SEATS = "SET_SEATS";
+import { ACTIONS } from "./../constants";
 
-export const setSeats = (seats, row) => ({
-  type: "SET_SEATS",
+const setSeatsAction = (seats, row) => ({
+  type: ACTIONS.SET_SEATS,
   seats,
   row
 });
+
+export const setSeats = (seats, row) => dispatch => {
+  dispatch(setSeatsAction(seats, row));
+};

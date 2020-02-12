@@ -1,6 +1,7 @@
 import React from "react";
 
-import { mapFilmDate } from "../../utils/mapFilmDate";
+import { displayDateCorrectly } from "../utils/displayDateCorrectly";
+import { displayFilmTime } from "../utils/displayFilmTime";
 
 const SelectDate = ({ movies, onChangeHandler }) => (
   <div className="link">
@@ -12,8 +13,17 @@ const SelectDate = ({ movies, onChangeHandler }) => (
       <option value="" default>
         Select a date
       </option>
-      {mapFilmDate(movies)}
-      ))}
+      {movies &&
+        movies.map((movie, i) => (
+          <optgroup label={movie.title} key={i}>
+            {movie.dates &&
+              movie.dates.map(date => (
+                <option>{`${displayDateCorrectly(date.date)} ${displayFilmTime(
+                  date.date
+                )}`}</option>
+              ))}
+          </optgroup>
+        ))}
     </select>
   </div>
 );

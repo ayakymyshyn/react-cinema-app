@@ -29,15 +29,17 @@ const Row = ({
   stringDate
 }) => {
   return seats.map((seat, i) => {
-    let found = selectedSeats.find(el => el.seatNum === seat._id);
+    const found = selectedSeats.find(el => el.seatNum === seat._id);
+
     return (
-      <React.Fragment>
+      <>
         <img
           key={seat._id}
           src={seat.booked ? booked : free}
           alt="Movie"
           style={{ ...styles }}
           onClick={e => {
+            // wowowowowow wowowowowowowow
             !seat.booked && e.target.classList.toggle("selected");
             !seat.booked && !selectedSeats.seatNum && !found
               ? setChosenSeats({
@@ -51,7 +53,7 @@ const Row = ({
               : removeSeat(seat._id);
           }}
         />
-      </React.Fragment>
+      </>
     );
   });
 };
@@ -60,9 +62,9 @@ const mapStateToProps = state => ({
   selectedSeats: state.moviesReducer.selectedSeats
 });
 
-const mapDispatchToProps = dispatch => ({
-  setChosenSeats: seats => dispatch(setSeats(seats)),
-  removeSeat: seat => dispatch(removeSeat(seat))
-});
+const mapDispatchToProps = {
+  setSeats,
+  removeSeat
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Row);
