@@ -22,7 +22,7 @@ const MovieDetails = ({
   const [selectedDate, setSelectedDate] = useState({});
 
   useEffect(() => {
-    getSingleFilm(match.params.movieId);
+    getSingleMovie(match.params.movieId);
     return () => {
       setBookStatus(false);
     };
@@ -113,10 +113,10 @@ const mapStateToProps = state => ({
   movieLoaded: state.moviesReducer.movieLoaded
 });
 
-const mapDispatchToProps = dispatch => ({
-  getSingleFilm: movie => dispatch(getSingleMovie(movie)),
-  cleanSeatsArray: () => dispatch(cleanSeatsArray()),
-  setBookStatus: status => dispatch(setBookStatus(status))
-});
+const mapDispatchToProps = {
+  getSingleMovie,
+  cleanSeatsArray,
+  setBookStatus
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(MovieDetails);

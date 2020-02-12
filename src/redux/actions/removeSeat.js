@@ -1,6 +1,10 @@
-export const REMOVE_SEAT = "REMOVE_SEAT";
+import { ACTIONS } from "./../constants";
 
-export const removeSeat = seat => ({
-  type: "REMOVE_SEAT",
-  seat,
+const removeSeatAction = seat => ({
+  type: ACTIONS.REMOVE_SEAT,
+  seat
 });
+
+export const removeSeat = seat => dispatch => {
+  dispatch(removeSeatAction(seat));
+};

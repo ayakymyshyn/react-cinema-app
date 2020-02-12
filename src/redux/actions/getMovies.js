@@ -1,17 +1,19 @@
-export const GET_MOVIES = "GET_MOVIES";
+import { ACTIONS } from "./../constants";
 
 const getMovies = () => {
   let loaded = false;
   return async dispatch => {
-    const res = await fetch("https://afternoon-woodland-86059.herokuapp.com/movies");
+    const res = await fetch(
+      "https://afternoon-woodland-86059.herokuapp.com/movies"
+    );
     const movies = await res.json();
     loaded = true;
     return dispatch({
-      type: "GET_MOVIES",
+      type: ACTIONS.GET_MOVIES,
       movies,
-      loaded,
-    })
-  }
+      loaded
+    });
+  };
 };
 
 export default getMovies;
