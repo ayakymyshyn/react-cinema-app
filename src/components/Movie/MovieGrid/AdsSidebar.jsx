@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 const AdsSidebar = () => (
   <div className="col-lg-3 text-center text-lg-left">

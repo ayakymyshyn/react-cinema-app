@@ -1,5 +1,5 @@
-export const CLEAN_SEATS_ARRAY = "CLEAN_SEATS_ARRAY";
+export const CLEAN_SEATS_ARRAY = 'CLEAN_SEATS_ARRAY';
 
 export const cleanSeatsArray = () => ({
-  type: "CLEAN_SEATS_ARRAY"
+  type: 'CLEAN_SEATS_ARRAY',
 });
