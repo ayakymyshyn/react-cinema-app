@@ -1,31 +1,34 @@
-import React, { useEffect } from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
+/* eslint-disable no-underscore-dangle */
+// Core
+import React from 'react';
 import {
   BrowserRouter as Router, Route, Switch, Redirect,
 } from 'react-router-dom';
-
+// Styles
 import './App.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../css/style.css';
 import '../css/slicknav.min.css';
 import '../css/responsive.css';
 import '../css/icofont.css';
-
+// Components
 import Slider from './Slider/Slider';
 import MovieGrid from './Movie/MovieGrid/MovieGrid';
 import MovieDetails from './Movie/MovieDetails/MovieDetails';
 import Sector from './Booking/Sector/Sector';
 import DownloadTicket from './Movie/MovieTicket/DownloadTicket';
+// Other
+import { useMovies } from './hooks/useMovies';
 
-import getMovies from '../redux/actions/getMovies';
-
-const App = (props) => {
-  useEffect(() => {
-    props.getMovies();
-  }, []);
-
-  return props.loaded ? (
+const App = () => {
+  const {
+    movies,
+    isOk,
+    selectedSeats,
+    movie,
+    loaded,
+  } = useMovies();
+  return loaded ? (
     <Router>
       <div className="main-app">
         <Switch>
@@ -34,21 +37,21 @@ const App = (props) => {
             path="/"
             render={() => (
               <>
-                <Slider movie={props.movies[0]} />
-                <MovieGrid movies={props.movies} />
+                <Slider movie={movies[0]} />
+                <MovieGrid movies={movies} />
               </>
             )}
           />
           <Route path="/movie/:movieId" component={MovieDetails}>
-            {props.isOk && <Redirect to="/download-ticket" />}
+            {isOk && <Redirect to="/download-ticket" />}
           </Route>
           <Route path="/seats" component={Sector} />
           <Route
             render={() => (
               <DownloadTicket
-                title={props.movie.title}
-                movieId={props.movie._id}
-                selectedSeats={props.selectedSeats}
+                title={movie.title}
+                movieId={movie._id}
+                selectedSeats={selectedSeats}
               />
             )}
           />
@@ -58,18 +61,9 @@ const App = (props) => {
     </Router>
   ) : (
     <div className="spinner">
-      <img src="https://www.defined.com/images/animated_loading__by__amiri.gif" />
+      <img src="https://www.defined.com/images/animated_loading__by__amiri.gif" alt="Loading..." />
     </div>
   );
 };
 
-const mapStateToProps = (state) => ({
-  movies: state.moviesReducer.movies,
-  isOk: state.moviesReducer.isOk,
-  selectedSeats: state.moviesReducer.selectedSeats,
-  movie: state.moviesReducer.movie,
-  loaded: state.moviesReducer.loaded,
-});
-const mapDispatchToProps = (dispatch) => bindActionCreators({ getMovies }, dispatch);
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default App;
